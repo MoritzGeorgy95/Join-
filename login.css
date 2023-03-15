@@ -1,0 +1,370 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  all: unset;
+}
+
+header img {
+  width: clamp(40px, 8%, 100px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%, -50%);
+  animation-name: movelogo;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes movelogo {
+  100% {
+    top: 3rem;
+    left: 3rem;
+  }
+}
+
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+
+.signup-wrapper p {
+  margin: 0;
+}
+
+.signup-wrapper button {
+  border: none;
+  border-radius: 5px;
+  height: max-content;
+  padding: 10px;
+  margin-left: 1.8rem;
+  background: var(--c-darkblue);
+  color: white;
+  transition: all 225ms ease-in-out;
+}
+
+.signup-wrapper button:hover {
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+  background: var(--c-lightblue);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+#card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  max-width: 500px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.form-card h1 {
+  /* border-bottom: 2.5px solid var(--c-lightblue);
+    padding-bottom: 10px; */
+  margin: 0;
+}
+
+.line {
+  margin-bottom: 2rem;
+  margin-top: 0.6rem;
+}
+
+.user-input {
+  width: 70%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.user-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-input input::placeholder {
+  color: var(--dimmed);
+}
+
+.user-input img {
+  position: absolute;
+  right: 10px;
+  width: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login-options-container {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.column1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.column2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.column2 button {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.column2 button:first-of-type {
+  background: var(--c-darkblue);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: all 225ms ease-in-out;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.column2 button:first-of-type:hover {
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+  background: var(--c-lightblue);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.column2 button:last-of-type {
+  color: var(--c-darkblue);
+  border: 1px solid var(--c-darkblue);
+  background: white;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.column2 button:last-of-type:hover {
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+  border: 1px solid var(--c-lightblue);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+  color: var(--c-lightblue);
+}
+
+.column1 div {
+  display: flex;
+}
+
+.column1 div input {
+  margin-right: 0.5rem;
+}
+
+.column1 div p,
+.column1 p {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.column1 .forgot {
+  color: var(--c-lightblue);
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+}
+
+.column1 .forgot:hover {
+  transform: scale(1.1);
+}
+
+/* signup section */
+
+.sign-up {
+  background: var(--c-darkblue);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: all 225ms ease-in-out;
+  padding: 8px 20px 8px 20px;
+}
+
+.sign-up:hover {
+  cursor: pointer;
+  transition: all 225ms ease-in-out;
+  background: var(--c-lightblue);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.go-back {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 3.5%;
+  cursor: pointer;
+}
+
+#invalid,
+#noUser {
+  margin: 0;
+  position: absolute;
+  bottom: -22px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+#success {
+  margin: 0;
+  position: absolute;
+  bottom: -22px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: green;
+}
+
+#invalid:empty,
+#success:empty,
+#noUser:empty {
+  display: none;
+}
+
+.validation-tooltip {
+  display: flex;
+  position: absolute;
+  bottom: -55px;
+  align-items: center;
+  z-index: 10000;
+  background: white;
+  font-size: 0.85rem;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.validation-tooltip::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid black;
+  border-right: 8px solid transparent;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.validation-tooltip p {
+  margin: 0;
+}
+
+.validation-tooltip p:first-of-type {
+  padding: 7px 12px 7px 12px;
+  background: var(--c-lightblue);
+  color: white;
+  margin-right: 0.85rem;
+}
+
+@media screen and (max-width: 950px) {
+  #card-container {
+    width: 90%;
+  }
+
+  .signup-wrapper {
+    right: 2rem;
+  }
+
+  .signup-wrapper p {
+    font-size: 1.1rem;
+  }
+
+  .signup-wrapper button {
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .login-options-container {
+    width: 100%;
+    /* flex-direction: column; */
+  }
+
+  .column1 div p,
+  .column1 p {
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  /* Barni
+    .login-options-container {
+        display: flex;
+        max-width: 80%;
+        flex-direction: inherit;
+        align-items: center;
+
+    }
+
+    .column2 p {
+        margin-top: 25px;
+        font-size: 13px !important;
+    } */
+}
+
+@media screen and (max-width: 500px) {
+  .user-input {
+    width: 100%;
+  }
+
+  #card-container {
+    margin-top: 3rem;
+  }
+
+  .form-card div:nth-of-type(2) {
+    margin-bottom: 1rem;
+  }
+
+  #responsive-exception {
+    margin-bottom: 2rem;
+  }
+
+  .column1 {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .column2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .column2 button {
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,114 @@
+.task {
+  width: 220px;
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 18px;
+  padding: 13px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.categoryTask-container {
+  display: flex;
+}
+
+.categoryTask {
+  display: flex;
+  justify-content: center;
+  max-width: 150px;
+  /* word-wrap: break-word; */
+  overflow-wrap: break-word;
+  padding: 5px 15px;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.task-title {
+  font-weight: bold;
+  padding: 10px 0;
+  color: black !important;
+}
+
+.description {
+  color: rgb(171, 169, 169);
+}
+
+.progress {
+  height: 20px;
+  padding: 15px 0;
+}
+
+.my-progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+}
+
+.progress-bar-done {
+  display: flex;
+  font-size: 11px;
+}
+
+.progress-container {
+  width: 120px;
+  height: 5px;
+  background-color: rgb(230, 227, 227);
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.progress-blue {
+  background-color: rgb(0, 98, 255);
+  height: 100%;
+  width: 0;
+  border-radius: 5px;
+}
+
+.avatar {
+  display: flex;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px !important;
+  margin-top: 7px;
+}
+
+.avatar-container img {
+  width: 13px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.prio-icon-medium {
+  width: 17px !important;
+  height: 6px !important;
+}
+
+.prio-icon-low {
+  transform: rotate(-2deg);
+}
+
+.color {
+  padding: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px white solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -5px;
+  color: #ffffff;
+}
+
+.progress-container-empty {
+  height: 25px;
+  width: 100%;
+}

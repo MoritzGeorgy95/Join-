@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/URL-icon" href="assets/img/join_logo_light.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="summary.css" />
+    <link rel="stylesheet" href="css/desktop_template.css" />
+    <script src="script.js"></script>
+    <script src="js/summary.js"></script>
+    <script src="js/mini_backend.js"></script>
+
+    <title>Join | Summary</title>
+  </head>
+
+  <body onload="initSummary()">
+    <!-- <div w3-include-html="assets/templates/desktop_template.html"></div> -->
+    <div class="sidebar"  w3-include-html="assets/templates/sidebar.html"></div>
+    <div class="header" w3-include-html="assets/templates/header.html"></div>
+
+    <div class="summary-main content">
+      <!-- Headline -->
+      <div class="summary-headline">
+        <span class="d-none">Kanban Project Management Tool</span>
+        <span class="fw-700 f-47 summary-headline-headline">Summary</span>
+        <div class="summary-headline-line"></div>
+        <span class="fw-400 f-27">Everything in a nutshell!</span>
+      </div>
+
+      <div class="summary-content">
+        <div class="summary-content-left">
+          <!-- Row-1 -->
+          <div class="row">
+            <div class="card-row-1" onclick="window.location.href='board.html'">
+              <span class="f-64" id="amountAll">5</span>
+              <span class="f-21">Tasks in Board</span>
+            </div>
+            <div class="card-row-1" onclick="window.location.href='board.html'">
+              <span class="f-64" id="amountProgress">2</span>
+              <span class="f-21">Tasks in Progress</span>
+            </div>
+            <div class="card-row-1" onclick="window.location.href='board.html'">
+              <span class="f-64" id="amountFeedback">2</span>
+              <span class="f-21">Awaiting Feedback</span>
+            </div>
+          </div>
+
+          <!-- Row-2 -->
+          <div class="row">
+            <div class="card-row-2" onclick="window.location.href='board.html'">
+              <div class="card-row-2-left">
+                <div>
+                  <img src="assets/img/icon_urgent.png" />
+                </div>
+                <div class="amount">
+                  <span class="f-47" id="amountUrgent">1</span>
+                  <span class="f-16">Urgent</span>
+                </div>
+              </div>
+              <div class="card-row-2-middle"></div>
+              <div class="card-row-2-right">
+                <span class="fw-700" id="date">Ocotber 16, 2022</span>
+                <span class="fw-400">Upcoming Deadline</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row-3 -->
+          <div class="row">
+            <div
+              class="card-row-3"
+              onclick="window.location.href='board.html'"
+              onmouseover="changeHoverIcon('iconPen', 'assets/img/icon_pen.svg')"
+              onmouseout="changeHoverIcon('iconPen', 'assets/img/icon_pen_white.svg')"
+            >
+              <div>
+                <img id="iconPen" src="assets/img/icon_pen.svg" />
+              </div>
+              <div class="amount">
+                <span class="f-64" id="amountToDo">1</span>
+                <span class="f-21">To-Do</span>
+              </div>
+            </div>
+            <div
+              class="card-row-3"
+              onclick="window.location.href='board.html'"
+              onmouseover="changeHoverIcon('iconCheck', 'assets/img/icon_check.svg')"
+              onmouseout="changeHoverIcon('iconCheck', 'assets/img/icon_check_white.svg')"
+            >
+              <div>
+                <img id="iconCheck" src="assets/img/icon_check.svg" />
+              </div>
+              <div class="amount">
+                <span class="f-64" id="amountDone">1</span>
+                <span class="f-21">Done</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Greetings -->
+        <div class="summary-content-right">
+          <span class="fw-500 f-47" id="greetings">Good morning,</span>
+          <h1 class="fw-700 f-64" id="loggedInUser"></h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

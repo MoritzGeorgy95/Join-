@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/URL-icon" href="assets/img/join_logo_light.png">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contacts.css" />
+  </head>
+  <body onload="init()">
+    <div class="sidebar"  w3-include-html="assets/templates/sidebar.html"></div>
+    <div class="header" w3-include-html="assets/templates/header.html"></div>
+    <div class="main">
+      <section>
+        <div class="contact-scroll-container" id="scroll-move">
+          <!-- <input type="text" name="" id="searchContacts" onkeyup="filterInputs()" placeholder="Search for names.."> -->
+          <div class="contact-list">
+            <ul id="contactInList">
+              <!-- Hier werden die Kontakte aus dem Array hinzugefügt -->
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="contactInformation">
+        <div class="contact-info-chart">
+          <div class="contact-great">
+            <div class="header-main"><h1>Contacts</h1></div>
+            <div><img src="assets/img/icon_line.png"></div>
+            <div class="header-secondary"><p>Better with a team</p></div>
+            <img src="assets/img/left-arrow.png" alt="arrow-left" id="left-arrow-mobile" onclick="closeContactDataMobile()">
+          </div>
+          <div id="contactLoader">
+            <!-- Hier wird der Standart Kontakt im div geladen -->
+          </div>
+          <div id="updatedContacts">
+            <!-- Hier wird die neuen Kontakte im div geladen -->
+          </div>
+        </div>
+          <!-- Hier werden die Kontakte editiert -->
+        </div>
+        <div class="button-position" onclick="addContact()">
+            <button class="button-style" id="addContact">
+              New contact <img src="assets/img/icon_add_contact.png" />
+            </button>
+        </div>
+      </section>
+    </div>
+    <!-- <div id="mobileContactOverlay"> -->
+      <!-- Hier wird die neuen Kontakte mobiel im div geladen -->
+    <!-- </div> -->
+    <script src="script.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script src="js/contacts_overlay.js"></script>
+    <script src="js/contacts.js"></script>
+    <!-- <script src="js/add_task.js"></script>
+    <script src="js/create_task.js"></script> -->
+  </body>
+</html>

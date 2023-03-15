@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.main-container {
+  background-color: #f6f7f8;
+  z-index: 2;
+  grid-row: 2/11;
+  grid-column: 3/11;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.headline {
+  height: 150px;
+  display: flex;
+  padding-right: 50px;
+  padding-left: 50px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.title-of-board {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.headline-right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.search-menu {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 6px 8px;
+  padding-bottom: 7px;
+  padding-right: 10px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.search-menu-mobile {
+  display: none;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 6px 8px;
+  padding-bottom: 7px;
+  padding-right: 10px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.search-button {
+  border: unset;
+  background-color: white;
+}
+
+.search-task {
+  outline: unset;
+  border: unset;
+  padding-left: 8px;
+  background-color: white;
+  height: 1.1rem;
+}
+
+::placeholder {
+  color: lightgray;
+  opacity: 0.9;
+  font-size: 15px !important;
+}
+
+.placehoder-color-red::-webkit-input-placeholder {
+  color: red;
+}
+
+.search-icon {
+  height: 16px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.search-icon-container {
+  border-left: 1px solid lightgrey;
+}
+
+.search-menu-back-button {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  background-color: #2a3647;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 225ms ease-in-out;
+  cursor: pointer;
+}
+
+.search-menu-back-button:hover {
+  background-color: #29aae1;
+  transition: all 225ms ease-in-out;
+  box-shadow: 2px 11px 7px -6px #afafaf;
+}
+ 
+.tasks-board {
+  padding-right: 50px;
+  padding-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  overflow-x: auto;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 215px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.task-area {
+  box-sizing: border-box;
+  min-width: 220px;
+  padding-bottom: 220px;
+}
+
+
+.plusButton {
+  cursor: pointer;
+  transition: 175ms ease-in-out;
+}
+
+.plusButton:hover rect {
+  stroke: #29aae1;
+  transition: 175ms ease-in-out;
+}
+
+.plusButton:hover path {
+  stroke: #29aae1;
+  transition: 175ms ease-in-out;
+}

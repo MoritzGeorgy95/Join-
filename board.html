@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Join | Board</title>
+  <link rel="icon" type="image/icon type" href="/assets/img/j.png">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/URL-icon" href="assets/img/join_logo_light.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./board-css/board-desktop.css">
+  <link rel="stylesheet" href="./board-css/tasks.css">
+  <link rel="stylesheet" href="./board-css/add-task-popup.css">
+  <link rel="stylesheet" href="./board-css/task-popup.css">
+  <link rel="stylesheet" href="./board-css/responsive.css">
+  <link rel="stylesheet" href="desktop_templates.css">
+
+</head>
+
+<body>
+
+  <div class="sidebar" w3-include-html="assets/templates/sidebar.html"></div>
+  <div class="header" w3-include-html="assets/templates/header.html"></div>
+
+
+  <div class="main-container">
+
+    <div class="headline">
+      <div class="title-of-board">Board</div>
+
+      <div class="headline-right-side">
+
+        <div id="searchMenu" class="search-menu">
+          <input placeholder="Find task" required id="searchTask" oninput="searchTask()" class="search-task"
+            type="text">
+
+          <div class="search-icon-container">
+            <button disabled class="search-button"><img class="search-icon" src="assets/img/search.png"></button>
+          </div>
+        </div>
+        <div onclick="addTask('toDo')" class="add-task-btn-board">Add task <img src="assets/img/plus-icon-white.svg">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tasks-board">
+
+
+      <div id="dropArea-1" class="drag-drop-area-1 drag-drop-containers">
+        <div class="title-1 title">
+          <div>To do</div>
+          <div onclick="addTask('toDo')">
+            <svg class="plusButton" width="30" height="30" viewBox="0 0 30 30" fill="none
+                " xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+        <div id="taskArea-1" class="tasks-area-1 task-area" ondragleave="ondragLeave('taskArea-1')"
+          ondragenter="ondragEnter('taskArea-1')" ondragend="finishedDragging()"
+          ondrop="moveTo('toDo',event,'taskArea-1')" ondragover="allowDrop(event)"></div>
+      </div>
+
+
+      <div id="dropArea-2" class="drag-drop-area-2 drag-drop-containers">
+        <div class="title-2 title">
+          <div class="title-task-area">In progress</div>
+          <div onclick="addTask('inProgress')">
+            <svg class="plusButton" width="30" height="30" viewBox="0 0 30 30" fill="none
+                " xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+        <div id="taskArea-2" class="tasks-area-2 task-area" ondragleave="ondragLeave('taskArea-2')"
+          ondragenter="ondragEnter('taskArea-2')" ondragend="finishedDragging()"
+          ondrop="moveTo('inProgress',event,'taskArea-2')" ondragover="allowDrop(event)"></div>
+      </div>
+
+
+      <div id="dropArea-3" class="drag-drop-area-3 drag-drop-containers">
+        <div class="title-3 title">
+          <div>Awaiting Feedback</div>
+          <div onclick="addTask('awaitingFeedback')">
+            <svg class="plusButton" width="30" height="30" viewBox="0 0 30 30" fill="none
+                " xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+        <div id="taskArea-3" class="tasks-area-3 task-area" ondragleave="ondragLeave('taskArea-3')"
+          ondragenter="ondragEnter('taskArea-3')" ondragend="finishedDragging()"
+          ondrop="moveTo('awaitingFeedback',event,'taskArea-3')" ondragover="allowDrop(event)"></div>
+      </div>
+
+      <div id="dropArea-4" class="drag-drop-area-4 drag-drop-containers">
+        <div class="title-4 title">
+          <div>Done</div>
+          <div onclick="addTask('done')">
+            <svg class="plusButton" width="30" height="30" viewBox="0 0 30 30" fill="none
+                " xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 7.5V22.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <path d="M22.5 15.1416L7.5 15.1416" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+              <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+        <div id="taskArea-4" class="tasks-area-4 task-area" ondragleave="ondragLeave('taskArea-4')"
+          ondragenter="ondragEnter('taskArea-4')" ondragend="finishedDragging()"
+          ondrop="moveTo('done',event,'taskArea-4')" ondragover="allowDrop(event)"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="layover" onclick="closeAddTask()" class="layover d-none">
+    <div onclick="stopPropagation(event)" class="popup-container">
+
+      <div id="taskCard" class="task-card">
+        <h1>Add Task</h1>
+        <div class="column-container form">
+          <div class="column-left">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Enter a title" />
+            <p class="required"></p>
+
+            <label for="name" class="mt-15">Description</label>
+            <textarea id="description" placeholder="Enter a description"></textarea>
+            <p class="required"></p>
+            <label class="mt-15" for="selectCategory">Category</label>
+            <div class="category-input-container">
+              <input readonly id="selectCategory" value="Select task category"></input>
+
+              <img src="assets/img/icon_triangle.png" id="addCategoryIcon">
+              <div id="categoryDot"></div>
+              <div id="categoryOninput">
+                <img src="assets/img/icon_clear.png" id="clearCategory">
+                <img src="assets/img/icon_done.png" id="addCategory">
+              </div>
+            </div>
+
+            <div id="dropdownContainer"></div>
+            <div id="colorContainer">
+              <div class="color-dot orange"></div>
+              <div class="color-dot red"></div>
+              <div class="color-dot blue"></div>
+              <div class="color-dot lightblue"></div>
+              <div class="color-dot pink"></div>
+              <div class="color-dot lightpink"></div>
+              <div class="color-dot green"></div>
+              <div class="color-dot turquo"></div>
+            </div>
+            <p class="required"></p>
+
+            <label for="assignedTo">Assigned to</label>
+            <div class="contact-input-container">
+              <input readonly id="assignedTo" value="Select contacts to assign"></input>
+              <img src="assets/img/icon_triangle.png" id="addContactIcon">
+            </div>
+            <div id="contactsDropdownContainer"></div>
+            <div id="avatarContainer"></div>
+            <p class="required"></p>
+          </div> 
+          <div class="column-right">
+            <label for="date">Due Date</label>
+            <input type="date" id="date" min="">
+            <p class="required"></p>
+            <label class="mt-15" for="prio">Prio</label>
+            <div id="prio" class="prio">
+              <div class="prio-btn">Urgent
+                <img src="assets/img/icon_up.png" alt="sda">
+              </div>
+              <div class="prio-btn">Medium
+                <img src="assets/img/icon_medium.png" alt="sda">
+              </div>
+              <div class="prio-btn">Low
+                <img src="assets/img/icon_down.png" alt="sda">
+              </div>
+            </div>
+            <p class="required"></p>
+            <label for="addSubtask" class="mt-15">Subtasks</label>
+            <div class="subtask-input-container">
+              <input type="text" id="addSubtask">
+              <img src="assets/img/icon_plus.png" id="addSubtaskIcon">
+              <div id="subtaskOninput">
+                <img src="assets/img/icon_clear.png" id="clearSubtaskInput">
+                <img src="assets/img/icon_done.png" id="finishEditingSubtask">
+              </div>
+            </div>
+            <div id="subtaskContainer"></div>
+            <div class="action-button-container">
+              <button id="clear">
+                Clear
+                <img src="assets/img/icon_close.png">
+              </button>
+              <button id="create">
+                Create Task
+                <img src="assets/img/icon_create.png">
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <script src="board-js/server.js"></script>
+  <script src="board-js/preloader.js"></script>
+  <script src="board-js/render.js"></script>
+  <script src="board-js/drag-and-drop.js"></script>
+  <script src="board-js/buttons.js"></script>
+  <script src="board-js/tasks.js"></script>
+  <script src="board-js/add_task.js"></script>
+  <script src="board-js/create_task.js"></script>
+  <script>
+    async function logout() {
+  setURL("https://moritz-georgy.developerakademie.net/Modul10/smallest_backend_ever");
+  await downloadFromServer();
+  users = JSON.parse(backend.getItem("users")) || [];
+  let index = users.findIndex((u) => {
+    return u.loggedIn == true;
+  });
+  if (index !== -1) { 
+    users[index].loggedIn = false;
+    await backend.setItem("users", JSON.stringify(users));
+    window.location.href = "index.html";
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+  </script>
+</body>
+
+</html>

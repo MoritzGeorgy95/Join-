@@ -1,0 +1,24 @@
+.content {
+  grid-column: 3/ 11;
+  grid-row: 2/11;
+  overflow-y: auto;
+  margin-top: 2rem;
+  margin-left: 80px;
+  padding-bottom: 20px;
+  text-align: justify;
+  margin-right: 15px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .content {
+    grid-column: 1/ 11;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+    padding-right: 0;
+  }
+}
