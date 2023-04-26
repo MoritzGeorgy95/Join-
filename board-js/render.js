@@ -221,7 +221,7 @@ function renderInput(id, date) {
 function renderSelectPanel(id) {
   document.getElementById("selectContainer" + id).innerHTML = /*html*/ `
     <div id="option${id}" class="option optionPlus" onclick="dropDown(${id})">
-        <div class="selectContact contactName">Select contacts to assign</div>
+        <div class="selectContact contact-name">Select contacts to assign</div>
         <button id="button${id}" class="button">
         <img id="img${id}" class="img" src="assets/img/arrow-down-black.png" alt="">
         </button>

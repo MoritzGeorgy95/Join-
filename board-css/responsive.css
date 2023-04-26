@@ -96,9 +96,7 @@
     width: 90%;
   }
 
-  .ok-button {
-    right: 60px;
-  }
+ 
 
   .exit-edit-container {
     top: 1rem;
@@ -139,48 +137,10 @@
     margin-bottom: 10px;
   }
 
-  .ok-button {
-    bottom: 80px;
-  }
+  
 
   .edit-container {
     margin-top: 30px;
   }
 }
 
-@media (max-width: 400px) {
-  .edit-container-wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-  }
-
-  .edit-container {
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    width: 85%;
-  }
-
-  .prio-container {
-    scale: 0.75;
-    margin-left: -42px !important;
-    margin-bottom: 10px;
-  }
-
-  .exit-edit-container {
-    top: 1rem;
-    right: -2rem;
-  }
-
-  .exit-task-popup {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .ok-button {
-    right: 65px;
-  }
-}
