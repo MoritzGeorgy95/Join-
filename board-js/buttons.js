@@ -2,8 +2,6 @@
  * This file handles all button events on the board that are unrelated to adding a new task
  */
 
-let chooesedContacts = [];
- 
 //open add task layover and make sure task is added directly to correct column
 function addTask(column) {
   columnName = column;
@@ -14,7 +12,6 @@ function addTask(column) {
     label[index].classList.add("mt-15-plus");
   }
   document.getElementById("taskCard").classList.add("task-card-plus");
-
 }
 
 //closing add task popup when clicking on layover
@@ -26,25 +23,22 @@ function closeAddTask() {
 async function editFinish(id) {
   let titleInput = document.getElementById("titleInput" + id);
   let descriptionInput = document.getElementById("textAreaDescription" + id);
-  let contactsSelected= false;
-  let checkboxes= document.getElementsByClassName('checkbox-edit-container');
-  [...checkboxes].forEach(c => {
-    if(c.checked) {
-      contactsSelected= true;
+  let contactsSelected = false;
+  let checkboxes = document.getElementsByClassName("checkbox-edit-container");
+  [...checkboxes].forEach((c) => {
+    if (c.checked) {
+      contactsSelected = true;
     }
-  })
+  });
 
   if (titleInput.value == "" || descriptionInput.value == "") {
     titleInput.placeholder = "This field is required";
     titleInput.classList.add("placehoder-color-red");
-    descriptionInput.placeholder ="This field is required";
+    descriptionInput.placeholder = "This field is required";
     descriptionInput.classList.add("placehoder-color-red");
-
-  } 
-  else if (!contactsSelected) {
-    document.getElementById('selectContainer' + id).style.borderColor= "red";
-  }
-  else {
+  } else if (!contactsSelected) {
+    document.getElementById("selectContainer" + id).style.borderColor = "red";
+  } else {
     updateForTasks(id);
     await addServer();
     window.location.reload();
@@ -324,17 +318,16 @@ function yesDelete(id) {
   deleteTask(id);
 }
 
-
 function contactSpecification(id) {
-  let checkboxes= document.getElementsByClassName('checkbox-edit-container');
-  let task= tasks[id];
-  task.names= [];
-  task.bGcolorsOfAvatar= [];
+  let checkboxes = document.getElementsByClassName("checkbox-edit-container");
+  let task = tasks[id];
+  task.names = [];
+  task.bGcolorsOfAvatar = [];
   for (let i = 0; i < checkboxes.length; i++) {
-    let checkbox= checkboxes[i];
+    let checkbox = checkboxes[i];
     if (checkbox.checked) {
       task.names.push(contacts[i].userName);
-      task.bGcolorsOfAvatar.push(contacts[i].color)
+      task.bGcolorsOfAvatar.push(contacts[i].color);
     }
   }
 }
