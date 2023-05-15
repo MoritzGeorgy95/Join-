@@ -42,7 +42,7 @@ let colorContainer = document.getElementById("colorContainer");
 let categoryDot = document.getElementById("categoryDot");
 
 /**
- * Adding event listener to input fields
+ * Adding event listeners to input fields
  */
 
 //add listener to category input field

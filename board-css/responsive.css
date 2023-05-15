@@ -96,8 +96,6 @@
     width: 90%;
   }
 
- 
-
   .exit-edit-container {
     top: 1rem;
     right: 0.5rem;
@@ -137,10 +135,7 @@
     margin-bottom: 10px;
   }
 
-  
-
   .edit-container {
     margin-top: 30px;
   }
 }
-
