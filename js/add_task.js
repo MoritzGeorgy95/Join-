@@ -6,6 +6,11 @@
  */
 
 /* script variables */
+
+/**
+ * Sets the URL for backend communication.
+ * @param {string} url - The URL for backend communication.
+ */
 setURL(
   "https://moritz-georgy.developerakademie.net/Modul10/smallest_backend_ever"
 );
@@ -13,6 +18,10 @@ setURL(
 let tasks = [];
 let team = [];
 
+/**
+ * Loads data from the server and initializes the tasks and team arrays.
+ * @returns {Promise<void>}
+ */
 async function preloader() {
   await downloadFromServer();
   tasks = JSON.parse(backend.getItem("keyTasks")) || [];
@@ -35,6 +44,10 @@ let subtaskContainer = document.getElementById("subtaskContainer");
 let clear = document.getElementById("clear");
 let create = document.getElementById("create");
 
+/**
+ * Event listener for the clear button. Reloads the page.
+ * @param {Event} e - The event object.
+ */
 clear.addEventListener("click", (e) => {
   e.preventDefault();
   window.location.reload();
@@ -54,7 +67,9 @@ let categoryOninput = document.getElementById("categoryOninput");
 let colorContainer = document.getElementById("colorContainer");
 let categoryDot = document.getElementById("categoryDot");
 
-// add listener to category input field
+/**
+ * Event listener for the category input field. Toggles the visibility of the category dropdown container.
+ */
 categoryInput.addEventListener("click", function () {
   if (!editingCategory) {
     if (dropdownOpen) {
@@ -86,7 +101,9 @@ categoryInput.addEventListener("click", function () {
   }
 });
 
-//add listener to new category div
+/**
+ * Event listener for the new category div. Displays the category input field for creating a new category.
+ */
 function addListenerToNewCategory() {
   let newCategory = document.getElementById("newCategory");
   newCategory.addEventListener("click", function () {
@@ -103,6 +120,9 @@ function addListenerToNewCategory() {
   });
 }
 
+/**
+ * Event listener for the clear category button. Resets the category input field and color container.
+ */
 clearCategory.addEventListener("click", function () {
   categoryInput.value = "Select Task Category";
   colorContainer.style.display = "none";
@@ -118,6 +138,9 @@ clearCategory.addEventListener("click", function () {
   }
 });
 
+/**
+ * Event listener for the add category button. Adds a new category to the categories array.
+ */
 addCategory.addEventListener("click", function () {
   if (categoryInput.value.length > 0) {
     colorContainer.style.display = "none";
@@ -142,6 +165,11 @@ addCategory.addEventListener("click", function () {
   }
 });
 
+/**
+ * Condition function for filtering color dots based on their selected state.
+ * @param {Element} el - The color dot element.
+ * @returns {boolean} - The result of the condition.
+ */
 let condition = function (el) {
   return el.classList.contains("selected");
 };
@@ -154,6 +182,10 @@ for (let i = 0; i < colorDots.length; i++) {
   });
 }
 
+/**
+ * Event listener for the color dots. Scales up the clicked color dot and updates the selected color.
+ * @param {Event} e - The event object.
+ */
 function scaleUp(e) {
   for (let i = 0; i < colorDots.length; i++) {
     const dot = colorDots[i];
@@ -164,7 +196,10 @@ function scaleUp(e) {
   e.target.classList.add("selected");
 }
 
-//display color dot and let user select categories
+/**
+ * Display color dot and let user select categories
+ * @param {Event} e - The event object
+ */
 function selectCategory(e) {
   let category = e.target;
   let categoryText = category.getElementsByClassName("category-text")[0];
@@ -178,6 +213,9 @@ function selectCategory(e) {
   categoryDot.style.right = `24px`;
 }
 
+/**
+ * Display color dot when a color is selected
+ */
 function displayColorDot() {
   let colorDiv = assignedColors[assignedColors.length - 1];
   selectedColor = colorDiv.classList[1];
@@ -187,7 +225,7 @@ function displayColorDot() {
   categoryDot.style.display = "inline";
 }
 
-//assigned contacts
+// Assigned contacts
 let contactsOpened = false;
 
 let assignedToInput = document.getElementById("assignedTo");
@@ -223,6 +261,9 @@ assignedToInput.addEventListener("click", function () {
   }
 });
 
+/**
+ * Show assigned contacts as chosen contacts
+ */
 function showAssignedContacts() {
   let checkboxes = document.querySelectorAll(".checkbox-primary");
 
@@ -241,11 +282,14 @@ function showAssignedContacts() {
   }
 }
 
+/**
+ * Hide assigned contacts
+ */
 function hideAssignedContacts() {
   document.getElementById("avatarContainer").innerHTML = "";
 }
 
-//add event listeners to prio items
+// Add event listeners to priority items
 let prioContainer = document.getElementById("prio");
 let prioBtns = document.getElementsByClassName("prio-btn");
 prioContainer.addEventListener("click", function (e) {
@@ -269,7 +313,10 @@ prioContainer.addEventListener("click", function (e) {
   }
 });
 
-//prio buttons style
+/**
+ * Apply styles to priority buttons
+ * @param {number} buttonIndex - The index of the selected button
+ */
 function applyStylesButton(buttonIndex) {
   const colors = [
     { bgColor: "rgb(255, 61, 0)", textColor: "white" },
@@ -288,9 +335,9 @@ function applyStylesButton(buttonIndex) {
   }
 }
 
-//subtask functionality
+// Subtask functionality
 
-//subtask input field listener
+// Subtask input field listener
 subtaskInputField.addEventListener("click", function () {
   subtaskOnInput.style.display = "flex";
   addSubtaskIcon.style.display = "none";
@@ -317,18 +364,21 @@ finishEditingSubtask.addEventListener("click", function () {
   }
 });
 
-//funcitionality of trashbin icon to delete subtask onclick
+/**
+ * Remove the parent element of the clicked element
+ * @param {Event} e - The event object
+ */
 function removeParent(e) {
   e.target.parentNode.remove();
 }
 
-//add listener to create task button
+// Add listener to create task button
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   formValidation();
 });
 
-// modify calendar so you can only select current date or date in the future
+// Modify calendar so you can only select current date or date in the future
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, "0");
 let mm = String(today.getMonth() + 1).padStart(2, "0");
