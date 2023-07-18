@@ -1,5 +1,13 @@
+/**
+ * Indicates whether the required fields are shown or not.
+ * @type {boolean}
+ */
 let requiredShown = false;
 
+/**
+ * Generates a new random color.
+ * @returns {string} The generated random color in hex format.
+ */
 function newColor() {
   var randomColor = "#000000".replace(/0/g, function () {
     return (~~(Math.random() * 16)).toString(16);
@@ -8,6 +16,9 @@ function newColor() {
   return randomColor;
 }
 
+/**
+ * Creates a new task.
+ */
 async function createTask() {
   let rgb = window
     .getComputedStyle(categoryDot)
@@ -17,7 +28,7 @@ async function createTask() {
 
   //let rbgTaskCategory = bgTaskCategory.match(/\d+/g).map(Number);
   let prio = document.querySelector(".active");
-  let probs= getPriorityValues(prio);
+  let probs = getPriorityValues(prio);
   let bgTaskCategory = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
   let selectedContacts = [];
 
@@ -43,16 +54,59 @@ async function createTask() {
     avatarColors.push(newColor());
   }
 
-  let newTask = generateTask(categoryInput, bgTaskCategory, title, description, prio, probs, date, selectedContacts, avatarColors, "toDo", tasks, subtasks, subtasksChecked);
+  let newTask = generateTask(
+    categoryInput,
+    bgTaskCategory,
+    title,
+    description,
+    prio,
+    probs,
+    date,
+    selectedContacts,
+    avatarColors,
+    "toDo",
+    tasks,
+    subtasks,
+    subtasksChecked
+  );
 
   tasks.push(newTask);
   await backend.setItem("keyTasks", JSON.stringify(tasks));
 }
 
-
-//helper function to generate new task
-function generateTask(categoryInput, bgTaskCategory, title, description, prio, probs, date, selectedContacts, avatarColors, columnName, tasks, subtasks, subtasksChecked) {
-  let newTask= {
+/**
+ * Generates a new task object.
+ * @param {HTMLElement} categoryInput - The category input element.
+ * @param {string} bgTaskCategory - The background color of the task category.
+ * @param {HTMLElement} title - The title input element.
+ * @param {HTMLElement} description - The description input element.
+ * @param {HTMLElement} prio - The active priority button element.
+ * @param {object} probs - The priority values object.
+ * @param {HTMLElement} date - The date input element.
+ * @param {Array} selectedContacts - The selected contacts array.
+ * @param {Array} avatarColors - The avatar colors array.
+ * @param {string} columnName - The column name.
+ * @param {Array} tasks - The tasks array.
+ * @param {Array} subtasks - The subtasks array.
+ * @param {Array} subtasksChecked - The subtasks checked array.
+ * @returns {object} The newly generated task object.
+ */
+function generateTask(
+  categoryInput,
+  bgTaskCategory,
+  title,
+  description,
+  prio,
+  probs,
+  date,
+  selectedContacts,
+  avatarColors,
+  columnName,
+  tasks,
+  subtasks,
+  subtasksChecked
+) {
+  let newTask = {
     taskCategory: categoryInput.value,
     bgTaskCategory: bgTaskCategory,
     taskTitle: title.value,
@@ -75,7 +129,11 @@ function generateTask(categoryInput, bgTaskCategory, title, description, prio, p
   return newTask;
 }
 
-//helper function to get priority values 
+/**
+ * Retrieves the priority values based on the selected priority button.
+ * @param {HTMLElement} prio - The active priority button element.
+ * @returns {object} The priority values object.
+ */
 function getPriorityValues(prio) {
   let props = {};
   switch (prio.innerText) {
@@ -113,7 +171,9 @@ function getPriorityValues(prio) {
   return props;
 }
 
-
+/**
+ * Performs form validation and triggers task creation if all inputs are valid.
+ */
 function formValidation() {
   if (checkInputs()) {
     showSuccessAnimation();
@@ -126,6 +186,9 @@ function formValidation() {
   }
 }
 
+/**
+ * Shows a success animation when a task is added to the board.
+ */
 function showSuccessAnimation() {
   let animationContainer = document.createElement("div");
   animationContainer.classList.add("alert");
@@ -136,6 +199,10 @@ function showSuccessAnimation() {
   document.body.append(animationContainer);
 }
 
+/**
+ * Checks if all input fields are filled correctly.
+ * @returns {boolean} True if all inputs are correct, false otherwise.
+ */
 function checkInputs() {
   let allCorrect = true;
   let prio = document.querySelector(".active");
@@ -156,6 +223,10 @@ function checkInputs() {
 
   return allCorrect;
 }
+
+/**
+ * Shows the required fields if they are not filled.
+ */
 
 function showRequired() {
   requiredShown = true;
