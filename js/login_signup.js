@@ -23,9 +23,7 @@ async function init() {
     }
   });
   await backend.setItem("users", JSON.stringify(users));
-  setTimeout(function () {
-    renderLogin();
-  }, 800);
+  renderLogin();
 }
 
 /**

@@ -19,7 +19,9 @@ function closeAddTask() {
   window.location.reload();
 }
 
-//handle end of editing a task task  (close layover and save new task info)
+//handle end of editing a task task (close layover and save new task info)
+
+//function way too long/ add indirect recursion and early return pattern
 async function editFinish(id) {
   let titleInput = document.getElementById("titleInput" + id);
   let descriptionInput = document.getElementById("textAreaDescription" + id);

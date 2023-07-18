@@ -11,22 +11,9 @@ header {
 header img {
   width: clamp(40px, 8%, 100px);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%, -50%);
-  animation-name: movelogo;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  top: 3rem;
+  left: 3rem;
 }
-
-@keyframes movelogo {
-  100% {
-    top: 3rem;
-    left: 3rem;
-  }
-}
-
 
 .signup-wrapper {
   display: flex;
