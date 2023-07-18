@@ -1,5 +1,4 @@
 /* script variables */
-// setURL("https://gruppe-428.developerakademie.net/smallest_backend_ever");
 
 let form = document.getElementsByClassName("form")[0];
 let title = document.getElementById("title");
