@@ -1,9 +1,19 @@
+/** Non-component specific logic needed accross the apllication to handle changes of navbar icons and respond to user navigation 
+
+/**
+ * Initializes the application.
+ * @returns {Promise<void>}
+ */
 async function init() {
   await includeHTML();
   navbarToggler();
   tooltip = document.getElementById("tooltip");
 }
 
+/**
+ * Includes HTML content into specified elements.
+ * @returns {Promise<void>}
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -18,6 +28,9 @@ async function includeHTML() {
   }
 }
 
+/**
+ * Toggles the active state of the navbar item based on the current page.
+ */
 function navbarToggler() {
   const url = window.location.href;
   const currentPage = url.replace(/^(?:\/\/|[^/]+)*\//, "");
@@ -33,6 +46,9 @@ function navbarToggler() {
 let logoutOpen = false;
 let tooltip;
 
+/**
+ * Opens or closes the logout tooltip.
+ */
 function openCloseLogout() {
   if (logoutOpen) {
     tooltip.style.display = "none";
@@ -43,10 +59,12 @@ function openCloseLogout() {
   }
 }
 
+/**
+ * Logs out the user and redirects to the index page.
+ * @returns {Promise<void>}
+ */
 async function logout() {
-  setURL(
-    "https://moritz-georgy.developerakademie.net/Modul10/smallest_backend_ever"
-  );
+  setURL("https://moritz-georgy.developerakademie.net/Modul10/smallest_backend_ever");
   await downloadFromServer();
   users = JSON.parse(backend.getItem("users")) || [];
   let index = users.findIndex((u) => {
